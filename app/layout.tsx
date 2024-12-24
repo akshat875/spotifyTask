@@ -1,7 +1,9 @@
 import { Inter } from 'next/font/google'
 import { PlayerProvider } from '@/components/PlayerContext'
-import 'bootstrap/dist/css/bootstrap.min.css'
+
 import './globals.css'
+
+
 
 const inter = Inter({ subsets: ['latin'] })
 

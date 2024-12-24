@@ -95,7 +95,7 @@ export const songs: Song[] = [
     title: 'Bohemian Rhapsody',
     artist: 'Queen',
     duration: '5:55',
-    cover: 'https://i.scdn.co/image/ab67616d00001e0205b451501d5c7f2122837d9', // Updated cover
+    cover: 'https://images.unsplash.com/photo-1579159278991-f698b0667a16?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Updated cover
     albumArt: 'https://i.scdn.co/image/ab67616d00001e0205b451501d5c7f2122837d9', // Updated album art
     audio: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3', // Updated audio link
     color: '#1e3264'
@@ -105,7 +105,7 @@ export const songs: Song[] = [
     title: 'Blinding Lights',
     artist: 'The Weeknd',
     duration: '3:20',
-    cover: 'https://i.scdn.co/image/ab67616d00001e02d4f40b89be8a9a12d1fae1d4', // Updated cover
+    cover: 'https://images.unsplash.com/photo-1579159278991-f698b0667a16?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Updated cover
     albumArt: 'https://i.scdn.co/image/ab67616d00001e02d4f40b89be8a9a12d1fae1d4', // Updated album art
     audio: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3', // Updated audio link
     color: '#2d4356'

@@ -13,7 +13,7 @@ export function AlbumArt({ song }: AlbumArtProps) {
   return (
     <div className="w-full aspect-square relative">
       <Image
-        src={song.albumArt || song.cover}
+        src={song.albumArt || song.cover ||"https://t4.ftcdn.net/jpg/09/60/92/23/360_F_960922306_rHPbe2ACmcao7Z2KiGXNoDVMuVlPddSO.jpg"}
         alt={song.title}
         fill
         className="object-cover rounded-lg"
