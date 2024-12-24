@@ -34,29 +34,39 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     }
     return []
   })
-  const [audio] = useState(new Audio())
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null)
 
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites))
-  }, [favorites])
+    // This ensures the audio object is only created on the client-side.
+    setAudio(new Audio())
 
-  useEffect(() => {
-    sessionStorage.setItem('recentlyPlayed', JSON.stringify(recentlyPlayed))
-  }, [recentlyPlayed])
-
-  useEffect(() => {
     return () => {
-      audio.pause()
-      audio.src = ''
+      // Cleanup when the component is unmounted
+      if (audio) {
+        audio.pause()
+        audio.src = ''
+      }
     }
-  }, [audio])
+  }, [])
+
+  useEffect(() => {
+    if (audio) {
+      localStorage.setItem('favorites', JSON.stringify(favorites))
+    }
+  }, [favorites, audio])
+
+  useEffect(() => {
+    if (audio) {
+      sessionStorage.setItem('recentlyPlayed', JSON.stringify(recentlyPlayed))
+    }
+  }, [recentlyPlayed, audio])
 
   const play = (song: Song) => {
-    if (currentSong?.id !== song.id) {
+    if (audio && currentSong?.id !== song.id) {
       audio.src = song.audio
       audio.load()
     }
-    audio.play()
+    audio?.play()
     setCurrentSong(song)
     setIsPlaying(true)
     setRecentlyPlayed(prev => {
@@ -66,7 +76,9 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   }
 
   const pause = () => {
-    audio.pause()
+    if (audio) {
+      audio.pause()
+    }
     setIsPlaying(false)
   }
 
@@ -120,4 +132,3 @@ export const usePlayer = () => {
   }
   return context
 }
-
