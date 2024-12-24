@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
+
 import { usePlayer } from '@/components/PlayerContext'
 import { MoreHorizontal, Play, Pause, SkipBack, SkipForward, Volume2 } from 'lucide-react'
 import { Dropdown } from 'react-bootstrap'
