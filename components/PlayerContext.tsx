@@ -37,15 +37,12 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null)
 
   useEffect(() => {
-    // This ensures the audio object is only created on the client-side.
-    setAudio(new Audio())
+    const newAudio = new Audio()
+    setAudio(newAudio)
 
     return () => {
-      // Cleanup when the component is unmounted
-      if (audio) {
-        audio.pause()
-        audio.src = ''
-      }
+      newAudio.pause()
+      newAudio.src = ''
     }
   }, [])
 
@@ -62,17 +59,26 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   }, [recentlyPlayed, audio])
 
   const play = (song: Song) => {
-    if (audio && currentSong?.id !== song.id) {
-      audio.src = song.audio
-      audio.load()
+    if (audio) {
+      if (currentSong?.id !== song.id) {
+        audio.pause() // Stop any ongoing playback
+        audio.src = song.audio // Set new source
+        audio.load() // Load the new audio file
+      }
+
+      // Play the audio and handle errors
+      audio.play().catch((err) => {
+        console.error('Error playing audio:', err)
+      })
+
+      setCurrentSong(song)
+      setIsPlaying(true)
+
+      setRecentlyPlayed(prev => {
+        const filtered = prev.filter(s => s.id !== song.id)
+        return [song, ...filtered].slice(0, 10)
+      })
     }
-    audio?.play()
-    setCurrentSong(song)
-    setIsPlaying(true)
-    setRecentlyPlayed(prev => {
-      const filtered = prev.filter(s => s.id !== song.id)
-      return [song, ...filtered].slice(0, 10)
-    })
   }
 
   const pause = () => {
@@ -99,7 +105,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   }
 
   const toggleFavorite = (song: Song) => {
-    setFavorites(prev => 
+    setFavorites(prev =>
       prev.some(s => s.id === song.id)
         ? prev.filter(s => s.id !== song.id)
         : [...prev, song]
@@ -107,17 +113,17 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <PlayerContext.Provider 
-      value={{ 
-        currentSong, 
-        isPlaying, 
-        play, 
-        pause, 
-        next, 
+    <PlayerContext.Provider
+      value={{
+        currentSong,
+        isPlaying,
+        play,
+        pause,
+        next,
         previous,
         toggleFavorite,
         favorites,
-        recentlyPlayed
+        recentlyPlayed,
       }}
     >
       {children}
