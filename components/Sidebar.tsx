@@ -18,7 +18,7 @@ export function Sidebar({ currentView, onViewChange, onClose }: SidebarProps) {
       </button>
       <div className={styles.logo}>
         <Image
-          src="/placeholder.svg?height=32&width=32"
+          src="/https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png"
           alt="Spotify"
           width={32}
           height={32}
