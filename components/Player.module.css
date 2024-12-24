@@ -1,0 +1,146 @@
+.player {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+
+
+@media (min-width: 992px) {
+  .player {
+    width: 25%;
+    right: 110px; 
+    bottom: 100px;
+    opacity: 0.9;
+    background: rgba(0, 0, 0, 0.8); 
+  }
+}
+
+@media (max-width: 991px) {
+  .player {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8); /* Ensuring consistent background on mobile */
+  }
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.songInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.songDetails {
+  flex: 1;
+}
+
+.songDetails h3 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.songDetails p {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.centerControls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.controlButton {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.controlButton:hover {
+  color: white;
+}
+
+.playButton {
+  background: white;
+  border: none;
+  border-radius: 50%;
+  color: black;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.playButton:hover {
+  transform: scale(1.1);
+}
+
+.playIcon {
+  margin-left: 1px;
+}
+
+.progressContainer {
+  width: 100%;
+}
+
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  height: 3px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.progressBar {
+  background: white;
+  height: 100%;
+  transition: width 1s linear;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem;
+}
+
+.menuButton:hover,
+.menuButton:focus {
+  color: white;
+}
+
+.menuButton::after {
+  display: none;
+}
+
+.volumeButton {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem;
+}
+
+.volumeButton:hover {
+  color: white;
+}

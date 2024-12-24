@@ -1,0 +1,22 @@
+.searchBar {
+  margin: 1rem 0;
+}
+
+.input {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 20px;
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+}
+
+.input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+  color: var(--text-primary);
+}
+
+.input::placeholder {
+  color: var(--text-secondary);
+}
+
