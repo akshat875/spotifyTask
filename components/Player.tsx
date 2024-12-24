@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import { usePlayer } from '@/components/PlayerContext'
 import { MoreHorizontal, Play, Pause, SkipBack, SkipForward, Volume2 } from 'lucide-react'
 import { Dropdown } from 'react-bootstrap'
-import styles from './player.module.css'
+import styles from './Player.module.css'
 
 export function Player() {
   const { currentSong, isPlaying, play, pause, next, previous, toggleFavorite, favorites } = usePlayer()

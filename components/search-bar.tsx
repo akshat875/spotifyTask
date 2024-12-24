@@ -2,7 +2,7 @@
 
 import { Search } from 'lucide-react'
 import { Form } from 'react-bootstrap'
-import styles from './search-bar.module.css'
+import styles from './Search-bar.module.css'
 
 interface SearchBarProps {
   value: string
