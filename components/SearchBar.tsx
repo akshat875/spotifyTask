@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Form } from 'react-bootstrap'
-import styles from './SearchBar.module.css'
+import styles from './Search-bar.module.css'
 
 export default function SearchBar() {
   const [search, setSearch] = useState('')

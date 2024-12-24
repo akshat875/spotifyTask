@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { X } from 'lucide-react'
-import styles from './sidebar.module.css'
+import styles from './Sidebar.module.css'
 
 interface SidebarProps {
   currentView: string
